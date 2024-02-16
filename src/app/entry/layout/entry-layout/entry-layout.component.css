@@ -1,0 +1,34 @@
+.xentry-document-info-header {
+  width: auto;
+  height: 2vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.xentry-message-bar-warning {
+  background-color: red;
+  color: white;
+  width: auto;
+  height: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.xentry-message-bar-info {
+  background-color: rgb(87, 86, 86);
+  color: white;
+  width: auto;
+  height: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+p.xentry-message-text {
+  font-size: 0.800em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}

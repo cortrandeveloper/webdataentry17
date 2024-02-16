@@ -1,0 +1,74 @@
+<!-- <button (click)="createJobdata()">Crete</button> -->
+<div (click)="focusControlFlow($event)" (keydown.f1)="showMenuModal('menuF1')">
+  <div #imageView class="xentry-img">
+    <!-- <img #image src="http://localhost:54910/api/documentimage/1" /> -->
+    <canvas #canvas id="canvas" style="border-color: violet; border-style: solid"></canvas>
+  </div>
+
+  <form [formGroup]="entryForm">
+    @if(entryLayout) {
+    <div [ngStyle]="{ width: '100vw', height: '26vh', 'overflow-y': 'scroll' }">
+      @for(page of entryLayout.PageLayout; track page.Name) {
+      @for(group of page.GroupLayout; track group.Name) {
+      <div class="card mb-1" [ngStyle]="{ height: '300px', 'background-color': '#000080' }">
+        <h5 [ngStyle]="{ color: 'yellow' }">{{ group.Name }}</h5>
+        <div class="card-body">
+          @for(item of group.ItemLayout; track item.Name) {
+          @switch (item.Model) {
+          @case(controlType.TextBox) {
+          <entry-textbox-control [controlInfo]="getControlInfo(item.Name)" />
+          } @case (controlType.ListBox) {
+          <entry-listbox-control [controlInfo]="getControlInfo(item.Name)" />
+          } @case (controlType.OptionBox) {
+          <entry-optionbox-control [controlInfo]="getControlInfo(item.Name)" />
+          }
+          }
+          }
+          @for(label of group.AnnonItemLayout; track label.Name) {
+          <div [ngStyle]="{
+                position: 'absolute',
+                top: (label.Position.Y || 0) + 30 + 'px',
+                left: (label.Position.X || 0) + 10 + 'px'
+              }">
+            <pre [ngStyle]="{
+                  width: (label.Dimension.X || 0) + 'px',
+                  height: (label.Dimension.Y || 0) + 'px',
+                  'font-family': label.Font,
+                  'font-size': '12px',
+                  color: 'white'
+                }">{{ label.Text }}</pre>
+          </div>
+          }
+        </div>
+      </div>
+      }
+      }
+    </div>
+    } @else {
+    <div>No Layout loaded yet..</div>
+    }
+  </form>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">...</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

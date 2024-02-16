@@ -1,0 +1,22 @@
+.xentry-optionbox {
+  font-size: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  padding-right: 8px;
+}
+
+.xentry-container{
+  border: 3px solid #4cc1c1;
+  background-color:#4cc1c1
+}
+
+.xentry-container:focus {
+  outline: none;
+}
+section:focus-within {
+  background-color:#ffffc0
+}
+
+.xentry-optionbox-flagged {
+  border: 3px solid red;
+}

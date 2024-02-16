@@ -1,0 +1,19 @@
+<div [formGroup]="controlInput"
+  [ngStyle]="{'position':'absolute', 'top' : (controlLayout.Position.Y || 0) + (30) + 'px', 'left' : (controlLayout.Position.X || 0)  + (10) + 'px', }">
+<section [id]="controlLayout.Name" tabindex="0" class="xentry-container"
+[ngClass]="controlState.status === 'flagged'? 'xentry-optionbox-flagged':''" (keydown)="onKeyDown($event)"
+(keyup)="onKeyUp($event)">
+  <label class="xentry-optionbox" formArrayName='items' *ngFor="let item of controlLayout.OptionItems; let index=index;">
+    <input type="checkbox" [formControlName]="index">
+    {{item.fullName}}
+  </label>
+</section>
+</div>
+
+
+<!-- <section (keydown)="setOption($event)" [id]="controlLayout.Name" tabindex="0" class="xentry-container">
+  <label class="xentry-optionbox" formArrayName='items' *ngFor="let item of optionList; let index=index;">
+    <input type="checkbox" [formControlName]="index">
+    {{item.fullName}}
+  </label>
+</section> -->

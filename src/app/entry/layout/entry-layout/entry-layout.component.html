@@ -1,0 +1,25 @@
+<div class="xentry-document-info-header">
+  <h6>OPID: {{ opid() }} | Job: {{ jobName() }} | Process: {{ processName() }} | BatchName: {{ batchName() }} |
+    Document: {{documentNumber()}}</h6>
+</div>
+
+<router-outlet></router-outlet>
+
+<div>
+  <div [ngClass]="notificationCss()">
+    <p class="xentry-message-text">
+      {{notificationMessage()}}
+    </p>
+  </div>
+</div>
+<!-- {{notificationMessage()}} -->
+<!-- [ngStyle]="{'width':'auto','height':'3vh','background-color':'red','color':'white','display':'flex','flex-wrap':'wrap'}" -->
+@if(menuModalService.isOpen()){
+<entry-modal-menu />
+}@else if(optionModalService.isOpen()){
+<entry-modal-option />
+}@else if (savePromptModalService.isOpen()) {
+<entry-interrupt-prompt-modal />
+}@else if (interruptPromptModalService.isOpen()) {
+<entry-interrupt-prompt-modal />
+}

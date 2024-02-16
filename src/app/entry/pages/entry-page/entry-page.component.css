@@ -1,0 +1,8 @@
+div.xentry-img {
+  width: auto;
+  height: 70vh;
+  overflow-y: scroll;
+  /* display: flex;
+  flex-wrap: wrap; */
+  background-color: gray;
+}

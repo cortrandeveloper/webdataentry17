@@ -1,0 +1,11 @@
+<div
+  [ngStyle]="{'position':'absolute', 'top' : (controlLayout.Position.Y || 0) + (30) + 'px', 'left' : (controlLayout.Position.X || 0)  + (10) + 'px' }">
+  <input class="xentry-textbox" type="text" [id]="controlLayout.Name" [formControl]="controlInput"
+    [maxlength]="controlLayout.FieldLength?controlLayout.FieldLength:0"
+    [ngStyle]="{'width': (controlLayout.Dimension.X || 0) + 'px'}"
+    (keydown)="onKeyDown($event)"
+    (keyup)="onKeyUp($event)"
+    (focus)="onFocus($event)"
+    [ngClass]="controlState.status === 'flagged'? 'xentry-textbox-flagged':''"
+    [readOnly]="controlState.isReadOnly || controlState.status === 'flagged'" >
+</div>

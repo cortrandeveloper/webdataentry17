@@ -1,0 +1,23 @@
+.xentry-textbox {
+  border: 3px solid #4cc1c1;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.xentry-textbox-flagged {
+  border: 3px solid red;
+}
+
+input[type=text] {
+  outline: none;
+  caret-color: #ff0000;
+  background-color: #4cc1c1;
+}
+
+input[type=text]:focus {
+  outline: none;
+  caret-color: #ff0000;
+  background-color: #ffffc0;
+}

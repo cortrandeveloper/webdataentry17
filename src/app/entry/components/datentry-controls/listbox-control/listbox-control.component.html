@@ -1,0 +1,22 @@
+<div
+  [ngStyle]="{'position':'absolute', 'top' : (controlLayout.Position.Y || 0) + (30) + 'px', 'left' : (controlLayout.Position.X || 0)  + (10) + 'px' }">
+  <!-- <select #listControl class="xentry-listbox xentry-container" [id]="controlLayout.Name" [formControl]="controlInput"
+    (focus)="onFocus($event)" (blur)="onBlur($event)" (click)="$event.preventDefault();"
+    (mousedown)="$event.preventDefault();" [ngStyle]="{'width': controlLayout.DimensionWidth + 'px'}">
+    <option *ngFor="let item of controlLayout.OptionItems; let index=index;" [value]="item.value" class="invisible" style="display: none;">{{item.fullName}}</option>
+  </select> -->
+  <input class="xentry-listbox xentry-container" type="text" [id]="controlLayout.Name" [formControl]="controlInput"
+  [maxlength]="controlLayout.FieldLength?controlLayout.FieldLength:0"
+  [ngStyle]="{'width': (controlLayout.Dimension.X || 0) + 'px'}"
+  (keydown)="onKeyDown($event)"
+  (keyup)="onKeyUp($event)"
+  (focus)="onFocus($event)"
+  (blur)="onBlur($event)"
+  [ngClass]="controlState.status === 'flagged'? 'xentry-listbox-flagged':''"
+  [readOnly]="true" >
+  <div class="xentry-listbox-options-container" [ngClass]="dropdownVisibility">
+    <p class="xentry-listbox-options-option" [ngClass]="controlInput.value === item.value ? 'xentry-option-active':''"
+      *ngFor="let item of controlLayout.OptionItems; let index=index;">{{item.fullName}}</p>
+  </div>
+  <!-- <input type="text"> -->
+</div>

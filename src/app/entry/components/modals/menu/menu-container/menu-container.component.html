@@ -1,0 +1,29 @@
+<div class="modal-backdrop fade show"></div>
+<div id="modal" tabindex="0" class="modal fade show" [ngStyle]="{ 'padding-right': '17px', display: 'block' }">
+  <div class="xentry-modal-dialog">
+    <div class="xentry-modal-content">
+      <div class="xentry-modal-header">
+        <h5 class="modal-title">Menu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="xentry-modal-body">
+        <div class="list-group">
+          @for(menuItem of menuF1(); track menuItem.triggerKey) {
+          <button type="button" [id]="getMenuItemId(menuItem)" class="xentry-list-group-item list-group-item-action"
+            (mouseup)="openMenuItem(menuItem.actionName)" [ngStyle]="{ cursor: 'pointer' }"
+            [ngClass]="{'xentry-list-group-active': isMenuItemActive(menuItem)}">({{ menuItem.triggerKey }}) - {{
+            menuItem.description}}</button>
+          }
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>

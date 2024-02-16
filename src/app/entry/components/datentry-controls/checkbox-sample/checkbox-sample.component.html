@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+  <div *ngFor="let group of items | tree" checkChildren>
+
+    <h5>
+      <input type="checkbox" multioption="false" selectGroup> {{ group.name }}
+    </h5>
+
+    <label formArrayName="items"
+      *ngFor="let child of group.children;">
+      <input type="checkbox" [formControlName]="child.index">
+      {{ items[child.index].name }}
+    </label>
+
+  </div>
+</form>

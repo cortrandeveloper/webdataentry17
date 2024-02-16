@@ -1,0 +1,47 @@
+.xentry-listbox {
+  border: 3px solid #4cc1c1;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  height: 28px;
+}
+
+.xentry-listbox-flagged {
+  border: 3px solid red;
+}
+
+.xentry-container {
+  background-color: #4cc1c1
+}
+
+.xentry-container:focus {
+  outline: none;
+}
+
+.xentry-container:focus-within {
+  background-color: #ffffc0
+}
+
+div.xentry-listbox-options-container {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+p.xentry-listbox-options-option {
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  margin-bottom: 0;
+  color:black;
+  background-color: #ffffc0;
+}
+
+.xentry-option-active{
+  z-index:2;
+  color: white !important;
+  background-color: #0d6efd !important;
+  border: solid 1px black;
+}

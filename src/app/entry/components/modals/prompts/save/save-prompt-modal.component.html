@@ -1,0 +1,34 @@
+<div class="modal-backdrop fade show"></div>
+<div id="modal" tabindex="0" class="modal fade show" [ngStyle]="{ 'padding-right': '17px', display: 'block' }">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Action required</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="handleClose()">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="list-group">
+         The current document is closing. Do you want to continue?
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button #closeButton type="button"
+          (keyup.enter)="handleClose()"
+          (mouseup)="handleClose()"
+          (keydown.arrowright)="saveButton.focus()"
+          class="btn btn-danger" data-dismiss="modal">
+            Close
+        </button>
+        <button #saveButton type="button"
+          (keyup.enter)="handleSave()"
+          (mouseup)="handleSave()"
+          (keydown.arrowleft)="closeButton.focus()"
+          class="btn btn-success">
+            Save
+          </button>
+      </div>
+    </div>
+  </div>
+</div>
